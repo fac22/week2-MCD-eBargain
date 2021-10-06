@@ -2,7 +2,7 @@
 
 ## eBargain
 
-### Core
+###
 
 - [] As a user, I want to: submit information to your site for anyone to see
 - [] As a user, I want to: come back to your site later and see what I posted is still there

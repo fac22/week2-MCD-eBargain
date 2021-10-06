@@ -9,5 +9,5 @@ echo "Created Postgres user 'ebargain_admin'"
 psql -q -c "CREATE DATABASE ebargain WITH OWNER ebargain_admin"
 echo "Created Postgres database 'ebargain'"
 
-cp .env
+cp example.env .env
 echo "Created .env containing DATABASE_URL"
