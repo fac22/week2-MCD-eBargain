@@ -6,9 +6,13 @@ BEGIN;
 
 -- Delete existing tables
 -- also "cascade" to delete any relations
-DROP TABLE IF EXISTS products, products_category CASCADE;
+DROP TABLE IF EXISTS products_category, products CASCADE;
 
 -- Create tables and define their columns
+CREATE TABLE products_category (
+  id SERIAL PRIMARY KEY,
+  catagory_name VARCHAR(255)
+);
 
 CREATE TABLE products (
   id SERIAL PRIMARY KEY,
@@ -18,21 +22,9 @@ CREATE TABLE products (
   category_id INTEGER REFERENCES products_category(id)
 );
 
-CREATE TABLE products_category (
-  id SERIAL PRIMARY KEY,
-  catagory_name VARCHAR(255),
-);
 
 -- Insert some example data for us to test with
 
-INSERT INTO products (product_name, product_description, product_price, category_id) VALUES
-  ('Dune', 'Film about complex stuff', '89.56', 1),
-  ('Harry Potter', 'Book about wizards', '12.34', 2),
-  ('T-Shirt', 'Green t-shirt with elephant on it', '2.23', 3),
-  ('Goofy movie', 'Disney film about Goofey', '14.23', 1),
-  ('Perfume', 'Book about smelly things', '18.23', 2),
-  ('Eames Chair', 'Set of modern chairs', '250', 4)
-;
 
 INSERT INTO products_category (catagory_name) VALUES
   ('Film'),
@@ -42,6 +34,15 @@ INSERT INTO products_category (catagory_name) VALUES
   ('Music'),
   ('Technology'),
   ('DIY')
+;
+
+INSERT INTO products (product_name, product_description, product_price, category_id) VALUES
+  ('Dune', 'Film about complex stuff', '89.56', 1),
+  ('Harry Potter', 'Book about wizards', '12.34', 2),
+  ('T-Shirt', 'Green t-shirt with elephant on it', '2.23', 3),
+  ('Goofy movie', 'Disney film about Goofey', '14.23', 1),
+  ('Perfume', 'Book about smelly things', '18.23', 2),
+  ('Eames Chair', 'Set of modern chairs', '250', 4)
 ;
 
 -- End the transaction and commit all changes
