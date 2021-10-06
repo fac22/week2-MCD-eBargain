@@ -31,7 +31,7 @@ INSERT INTO products (product_name, product_description, product_price, category
   ('T-Shirt', 'Green t-shirt with elephant on it', '2.23', 3),
   ('Goofy movie', 'Disney film about Goofey', '14.23', 1),
   ('Perfume', 'Book about smelly things', '18.23', 2),
-  ('Eames Chair', 'Set of modern chairs', '250', 4),
+  ('Eames Chair', 'Set of modern chairs', '250', 4)
 ;
 
 INSERT INTO products_category (catagory_name) VALUES
@@ -41,8 +41,7 @@ INSERT INTO products_category (catagory_name) VALUES
   ('Furniture'),
   ('Music'),
   ('Technology'),
-  ('DIY'),
-  
+  ('DIY')
 ;
 
 -- End the transaction and commit all changes
