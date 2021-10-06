@@ -6,20 +6,21 @@ BEGIN;
 
 -- Delete existing tables
 -- also "cascade" to delete any relations
-DROP TABLE IF EXISTS users, blog_posts CASCADE;
+DROP TABLE IF EXISTS products, products_category CASCADE;
 
 -- Create tables and define their columns
 
-CREATE TABLE users (
+CREATE TABLE products (
   id SERIAL PRIMARY KEY,
-  username VARCHAR(255) NOT NULL,
-  age INTEGER
+  product_name VARCHAR(150) NOT NULL,
+  product_description TEXT NOT NULL,
+  product_price SMALLMONEY NOT NULL,
+  category_id INTEGER REFERENCES products_category(id)
 );
 
-CREATE TABLE blog_posts (
+CREATE TABLE products_category (
   id SERIAL PRIMARY KEY,
-  user_id INTEGER REFERENCES users(id),
-  text_content TEXT
+  catagory_name VARCHAR(255),
 );
 
 -- Insert some example data for us to test with
