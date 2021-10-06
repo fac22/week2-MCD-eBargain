@@ -1,5 +1,24 @@
-# week2-MCD-eBargain
+# Week 02 - Database Project
 
-beyond ebay!
+## eBargain
 
- <!-- <iframe src="https://giphy.com/embed/kH6CqYiquZawmU1HI6" width="480" height="220" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/devrock-code-edr-escueladevrock-kH6CqYiquZawmU1HI6">via GIPHY</a></p> -->
+### Core
+
+- [] As a user, I want to: submit information to your site for anyone to see
+- [] As a user, I want to: come back to your site later and see what I posted is still there
+
+### Acceptance Criteria ✅
+
+- [] A form for users to submit data
+- [] A page showing all the data
+- [] Semantic form elements with correctly associated labels
+- [] A Postgres database hosted on Heroku
+- [] A schema describing your database in your README
+- [] Tests for server routes and database access
+- [] Not process user input as SQL commands
+- [] Hidden environment variables (i.e. not on GitHub)
+
+### Stretch criteria 🚂
+
+- [] A way to view filtered/sorted data, instead of just all of it
+- [] GitHub Actions CI setup to run your tests when you push
