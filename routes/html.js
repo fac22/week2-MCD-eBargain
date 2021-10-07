@@ -1,6 +1,6 @@
 'use strict';
 
-function html(productCategorys, productList) {
+function html(productList, productCategorys, users) {
   const HTML = `
 <html lang="en">
 
@@ -22,11 +22,12 @@ function html(productCategorys, productList) {
         <form method="post" action="/">
 
            
-                <label for="new_user">
-                    <h2>Username</h2>
-                    <input type="text" placeholder="Enter user" name="new_user" id="new_user">
+                <label for="users">
+                    <h2>Seller</h2>
+                    <select name="users" id="users">
+         ${users}
+                    </select>
                 </label>
-       
         
                 <label for="product_name">
                     <h2>Product Name</h2>
@@ -47,7 +48,7 @@ function html(productCategorys, productList) {
                 <label for="product_category">
                     <h2>Category</h2>
                     <select name="product_category" id="product_category">
-                   ${productCategorys}
+            ${productCategorys}
                     </select>
                 </label>
             <button class="box__button margin-top-1rem">SUBMIT PRODUCT</button>
