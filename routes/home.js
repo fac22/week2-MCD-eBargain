@@ -1,6 +1,5 @@
 'use strict';
 
-const { parseInt } = require('lodash');
 const model = require('../database/model.js');
 const html = require('../routes/html.js');
 
@@ -15,26 +14,24 @@ function get(request, response) {
       const productList = values[0]
         .map((product) => {
           return `
-                  <article class="flex flex--column border padding-2rem background--grey margin-top-2rem">
-  <div
-    class="
-            flex
-            flex--row
-            flex--justify-space-between
-            flex--align-items-center
-          "
-  >
-    <div class="flex flex--row flex--align-items-center">
-      <h2>${product.product_name}</h2>
-    </div>
-    <span>£ ${product.product_price}</span>
-    <span>${product.category_name}</span>
-    <span>${product.username}</span>
-  </div>
-  <div class="flex flex--row flex--justify-space-between">
-    <p class="padding-top-bottom-1rem ">${product.product_description}</p>
-  </div>
-</article>`;
+                      <article class="flex flex--column border-${product.category_id} padding-2rem background--grey margin-top-2rem">
+
+            <div class="flex flex--row flex--align-items-center flex--justify-space-between">
+                <h3>${product.product_name}</h3>
+                <span class="price">£ ${product.product_price}</span>
+            </div>
+
+
+            <div class="flex flex--row flex--justify-space-between ">
+                <p class="padding-top-bottom-1rem ">${product.product_description}</p>
+            </div>
+
+            <div class="flex flex--row flex--align-items-center flex--justify-space-between">
+                <span>${product.category_name}</span>
+                <span class="user">${product.username} 👈</span>
+            </div>
+
+    </article>`;
         })
         .join('');
 
