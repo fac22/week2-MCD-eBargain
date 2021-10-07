@@ -10,53 +10,24 @@
 </head>
 
 <body>
-    <header class="margin-top-2rem">
-        <h1><img src="./public/logo.png" alt="eBargain Logo" width="200vw"></h1>
-    </header>
-    <section class="flex flex--column margin-top-2rem">
+    <article class="flex flex--column border-${product.category_id} padding-2rem background--grey margin-top-2rem">
 
-        <form method="post" action="/">
-
-
-            <label for="new_user">
-                <h2>Username</h2>
-                <input type="text" placeholder="Enter user" name="new_user" id="new_user">
-            </label>
+        <div class="flex flex--row flex--align-items-center">
+            <h3>${product.product_name}</h3>
+            <span>£ ${product.product_price}</span>
+        </div>
 
 
-            <label for="product_name">
-                <h2>Product Name</h2>
-                <input type="text" placeholder="Enter product name" name="product_name" id="product_name">
-            </label>
+        <div class="flex flex--row flex--justify-space-between">
+            <p class="padding-top-bottom-1rem ">${product.product_description}</p>
+        </div>
 
-            <label for="product_description">
-                <h2>Product description</h2>
-                <input type="text" placeholder="Enter product description" name="product_description"
-                    id="product_description">
-            </label>
+        <div class="flex flex--row flex--align-items-center">
+            <span>${product.category_name}</span>
+            <span>${product.username} </span>
+        </div>
 
-            <label for="product_price">
-                <h2>Product price</h2>
-                <input type="numeric" placeholder="Enter Product price" name="product_price" id="product_price">
-            </label>
-
-            <label for="product_category">
-                <h2>Category</h2>
-                <select name="product_category" id="product_category">
-
-                    <option value=""></option>
-                </select>
-            </label>
-            <button class="box__button margin-top-1rem">SUBMIT PRODUCT</button>
-        </form>
-    </section>
-
-    <section class="flex flex--column margin-top-2rem">
-        <article>
-            <h3>Dune</h3> -
-        </article>
-        ${productList}
-    </section>
+    </article>
 </body>
 
 </html>

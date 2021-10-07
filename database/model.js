@@ -12,8 +12,7 @@ function getProductOrder() {
   const query = `SELECT * FROM products 
     INNER JOIN products_category 
     ON products.category_id = products_category.id 
-    INNER JOIN users ON products.product_seller = users.id
-    ORDER BY products.category_id DESC;`;
+    INNER JOIN users ON products.product_seller = users.id;`;
   return db.query(query).then((result) => result.rows);
 }
 
