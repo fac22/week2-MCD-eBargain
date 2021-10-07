@@ -1,6 +1,6 @@
 'use strict';
 
-function html(productCategorys, productList) {
+function html(productList) {
   const HTML = `
 <html lang="en">
 
@@ -47,7 +47,7 @@ function html(productCategorys, productList) {
                 <label for="product_category">
                     <h2>Category</h2>
                     <select name="product_category" id="product_category">
-                   ${productCategorys}
+           
                     </select>
                 </label>
             <button class="box__button margin-top-1rem">SUBMIT PRODUCT</button>

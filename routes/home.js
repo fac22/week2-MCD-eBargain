@@ -1,40 +1,27 @@
 'use strict';
 
 const model = require('../database/model.js');
+const html = require('../routes/html.js');
 
 function get(request, response) {
-  const usersList = model.getUsers();
-  const productOrderList = model.getProductOrder();
+  // const users = model.getUsers();
+  const productOrder = model.getProductOrder(); /// it works
+  // const productCategorys = model.getCategorys();
 
-  Promise.all([usersList, productOrderList]).then((values) =>
-    console.log('Promise all data', values)
-  );
+  Promise.all([productOrder])
+    .then((values) => {
+      const productList = values[0]
+        .map((product) => {
+          return `<li>${product.product_name} - ${product.product_description} - ${product.product_price}</li>`;
+        })
+        .join('');
+
+      response.send(html(productList));
+    })
+    .catch((error) => {
+      console.error('error', error);
+      response.status(404).send('😕 Error: Something went wrong 🛒' + error);
+    });
 }
-
-// function get(request, response) {
-//     getUsers().then((users) => {
-//       const userList = users.map((user) => {
-//         return /*html*/ `
-//         <li>
-//           <span>${user.username}</span>
-//           <form action="/users/delete/" method="POST" class="inline">
-//             <button name="id" value="${user.id}" aria-label="Delete ${user.username}">
-//               &times;
-//             </button>
-//           </form>
-//         </li>
-//       `;
-//       });
-//       const html = layout(
-//         "Users",
-//         /*html*/ `
-//         <h2>Users</h2>
-//         <ul>${userList.join("")}</ul>
-//         <a href="/users/create">New user +</a>
-//       `
-//       );
-//       response.send(html);
-//     });
-//   }
 
 module.exports = { get };

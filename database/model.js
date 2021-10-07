@@ -27,4 +27,10 @@ function getProductOrder() {
     .then((result) => result.rows);
 }
 
-module.exports = { getUsers, getProductOrder };
+function getCategorys() {
+  return db
+    .query('SELECT catagory_name FROM products_category')
+    .then((result) => result.rows);
+}
+
+module.exports = { getUsers, getProductOrder, getCategorys };
