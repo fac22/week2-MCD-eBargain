@@ -3,6 +3,9 @@
 const express = require('express');
 const db = require('./database/connection.js');
 const server = express();
+const html = require('./routes/html.js');
+
+server.use(express.static('./public'));
 
 server.get('/', (request, response) => {
   db.query(
@@ -15,7 +18,9 @@ server.get('/', (request, response) => {
         })
         .join('');
     })
-    .then((products) => response.send(`<ul>${products}</ul>`))
+    .then((products) => {
+      response.send(html(products));
+    })
     .catch(() =>
       response.status(404).send('😕 Error: Something went wrong 🛒')
     );
