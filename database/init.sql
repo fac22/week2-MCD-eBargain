@@ -9,22 +9,33 @@ BEGIN;
 DROP TABLE IF EXISTS products_category, products CASCADE;
 
 -- Create tables and define their columns
+
 CREATE TABLE products_category (
   id SERIAL PRIMARY KEY,
   catagory_name VARCHAR(255)
+);
+
+-- creating user
+CREATE TABLE users (
+  id SERIAL PRIMARY KEY,
+  user_name VARCHAR(20) NOT NULL
 );
 
 CREATE TABLE products (
   id SERIAL PRIMARY KEY,
   product_name VARCHAR(150) NOT NULL,
   product_description TEXT NOT NULL,
-  product_price MONEY NOT NULL,
+  product_price MONEY NOT NULL, 
+  product_seller INTEGER NOT NULL REFERENCES users(id),
   category_id INTEGER REFERENCES products_category(id)
 );
 
-
 -- Insert some example data for us to test with
 
+INSERT INTO users (user_name) VALUES 
+  ('mario'),
+  ('safia')
+;
 
 INSERT INTO products_category (catagory_name) VALUES
   ('Film'),
