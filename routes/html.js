@@ -23,30 +23,30 @@ function html(productList, productCategorys, users) {
 
            
                 <label for="users">
-                    <h2>👉 SELLER:</h2>
+                    👉 SELLER:
                     <select name="users" id="users">
          ${users}
                     </select>
                 </label>
         
                 <label for="product_name">
-                    <h2>🙂 PRODUCT NAME:</h2>
+                    🙂 PRODUCT NAME:
                     <input type="text" placeholder="Enter product name" name="product_name" id="product_name">
                 </label>
          
                 <label for="product_description">
-                    <h2>📝 DESCRIPTION:</h2>
+                    📝 DESCRIPTION:
                     <input type="text" placeholder="Enter product description" name="product_description"
                         id="product_description">
                 </label>
       
                 <label for="product_price">
-                    <h2>💵 PRICE:</h2>
+                    💵 PRICE:
                     <input type="numeric" placeholder="Enter Product price" name="product_price" id="product_price">
                 </label>
         
                 <label for="product_category">
-                    <h2>🔍 CATEGORY</h2>
+                    🔍 CATEGORY
                     <select name="product_category" id="product_category">
             ${productCategorys}
                     </select>

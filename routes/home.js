@@ -14,7 +14,7 @@ function get(request, response) {
       const productList = values[0]
         .map((product) => {
           return `
-                      <article class="flex flex--column border-${product.category_id} padding-2rem background--grey margin-top-2rem">
+                      <article class="flex flex--column border border-${product.category_id} padding-2rem background--grey margin-top-2rem">
 
             <div class="flex flex--row flex--align-items-center flex--justify-space-between">
                 <h3>${product.product_name}</h3>
@@ -58,7 +58,6 @@ function get(request, response) {
 
 function post(request, response) {
   const body = request.body;
-  model.createUser(body.new_user); /// it works
   model.createProduct(
     body.product_name,
     body.product_description,
