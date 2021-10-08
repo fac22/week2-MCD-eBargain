@@ -1,7 +1,19 @@
+# #! /bin/sh
+
+# # stop script when an error occurs
+# set -e
+
+# # psql ebargain -q -f "./database/init.sql"
+# psql $DATABASE_URL -q -f "./src/database/init.sql"
+# echo "Populated database tables"
+
 #! /bin/sh
 
 # stop script when an error occurs
 set -e
 
-psql ebargain -q -f "./database/init.sql"
+# import .env so we can access DB URL
+. .env
+
+psql $DATABASE_URL -q -f "./database/init.sql"
 echo "Populated database tables"
