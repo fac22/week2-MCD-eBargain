@@ -3,5 +3,5 @@
 # stop script when an error occurs
 set -e
 
-psql learn_pg -q -f "./database/init.sql"
+psql ebargain -q -f "./database/init.sql"
 echo "Populated database tables"
