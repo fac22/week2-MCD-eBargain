@@ -14,7 +14,7 @@ All of the things we have learnt, discovered or problems we have solved.
 
 ## USEFUL COMMANDS
 
-``restarts`postgres` if encountering error like :
+`sudo /etc/init.d/postgresql restart` restarts`postgres` if encountering error like :
 
 ```
 psql: could not connect to server: No such file or directory
