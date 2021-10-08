@@ -17,4 +17,9 @@ server.post('/', bodyParser, home.post);
 
 const PORT = process.env.PORT || 3000;
 
+process.on('unhandledRejection', (error) => {
+  console.error(error);
+  process.exit(1);
+});
+
 server.listen(PORT, () => console.log(`Listening on http://localhost:${PORT}`));

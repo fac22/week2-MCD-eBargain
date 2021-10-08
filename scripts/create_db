@@ -1,13 +1,33 @@
-#! /bin/bash
+# #! /bin/bash
+
+# # stop script when an error occurs
+# set -e
+
+# psql -q -c "CREATE USER ebargain_admin SUPERUSER PASSWORD 'pass123'"
+# echo "Created Postgres user 'ebargain_admin'"
+
+# psql -q -c "CREATE DATABASE ebargain WITH OWNER ebargain_admin"
+# echo "Created Postgres database 'ebargain'"
+
+# cp example.env .env
+# echo "Created .env containing DATABASE_URL"
+
+#! /bin/sh
 
 # stop script when an error occurs
 set -e
 
-psql -q -c "CREATE USER ebargain_admin SUPERUSER PASSWORD 'pass123'"
-echo "Created Postgres user 'ebargain_admin'"
+# name will be whatever the first argument is when called
+# e.g. ./scripts/create_db test => DB_NAME='test' (defaults to "example")
+DB_NAME=${1:-example}
 
-psql -q -c "CREATE DATABASE ebargain WITH OWNER ebargain_admin"
-echo "Created Postgres database 'ebargain'"
 
-cp example.env .env
+psql -q -c "CREATE USER ${DB_NAME}user SUPERUSER PASSWORD 'pass123'"
+echo "Created Postgres user '${DB_NAME}user'"
+
+psql -q -c "CREATE DATABASE ${DB_NAME} WITH OWNER ${DB_NAME}user"
+echo "Created Postgres database '${DB_NAME}'"
+
+DB_URL="postgres://${DB_NAME}user:pass123@localhost:5432/${DB_NAME}"
+echo "DATABASE_URL='${DB_URL}'" > .env
 echo "Created .env containing DATABASE_URL"

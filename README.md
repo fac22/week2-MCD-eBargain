@@ -65,5 +65,3 @@
 
 ### 👀 Screenshots
 
-![Mobile](readme/mobile-fritter1.png)
-![Desktop](readme/desktop-fritter.png)
